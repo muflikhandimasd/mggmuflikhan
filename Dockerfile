@@ -4,5 +4,5 @@ WORKDIR /app
 RUN gradle build --no-daemon
 
 FROM eclipse-temurin:23-jdk
-COPY --from=build /app/build/libs/${APP_NAME}-1.jar app.jar
+COPY --from=build /app/build/libs/mggmuflikhan-1.jar app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
