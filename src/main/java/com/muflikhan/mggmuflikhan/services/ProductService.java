@@ -4,6 +4,7 @@ import com.muflikhan.mggmuflikhan.dtos.CreateOrUpdateProductRequest;
 import com.muflikhan.mggmuflikhan.entities.Product;
 import com.muflikhan.mggmuflikhan.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +19,7 @@ public class ProductService {
     private ValidationService validationService;
 
     public List<Product> getAllProducts() {
-        return productRepository.findAll();
+        return productRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     @Transactional
